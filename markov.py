@@ -28,5 +28,9 @@ def generate(g):
 
 if __name__ == '__main__':
     g = defaultdict(list)
-    train("This is a test".split(), g)
-    print(generate(g))
+    with open('bee-movie-script.txt') as f:
+        for line in f:
+            if line.strip():
+                train(line.strip().split(), g)
+    for _ in range(5):
+        print(generate(g))
